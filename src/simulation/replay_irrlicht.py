@@ -52,7 +52,7 @@ def replay_simulation_irrlicht(
     pit_body = chrono.ChBody()
     pit_body.SetFixed(True)
     pit_body.SetPos(chrono.ChVector3d(*pit_center))
-    pit_shape = chrono.ChVisualShapeBox(pit_dimensions[0], pit_dimensions, pit_dimensions)
+    pit_shape = chrono.ChVisualShapeBox(*pit_dimensions)
     pit_shape.SetColor(chrono.ChColor(0.35, 0.30, 0.25))
     pit_body.AddVisualShape(pit_shape)
     sys_vis.AddBody(pit_body)
@@ -126,8 +126,8 @@ if __name__ == "__main__":
     os.chdir(PROJECT_ROOT)
 
     # Set default run to inspect when clicking Run in PyCharm
-    DEFAULT_RUN_DIR = "output/test_run_01_short_drum"
-    DEFAULT_OBJ_PATH = "assets/drums/drum_short_2cm_open.obj"
+    DEFAULT_RUN_DIR = "output/test_run_01_open_section_drum"
+    DEFAULT_OBJ_PATH = "assets/bucket drums/RASSOR_SPIKEY.obj"
 
     parser = argparse.ArgumentParser(description="Replay exported CRM Bucket Drum run in Irrlicht")
     parser.add_argument("--run-dir", default=DEFAULT_RUN_DIR, help="Path to output/<run_id> directory")
